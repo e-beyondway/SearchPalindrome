@@ -8,7 +8,7 @@ function PalindromeComponent() {
   const [palindromeLog, setPalindromeLog] = useState<PalindromeLogInterface>();
   const [palindrome, setPalindrome] = useState<string>("");
   const [leftSubStringRows, setLeftSubStringRows] = useState<string[]>();
-  const [rigthSubStringRows, setRigthSubStringRows] = useState<string[]>();
+  const [rightSubStringRows, setRightSubStringRows] = useState<string[]>();
 
   useEffect(() => {
     getPalindromeData("sadas");
@@ -30,15 +30,15 @@ function PalindromeComponent() {
           " "
         );
         acc.left.push(i.leftSubString + emptyArr.join(""));
-        acc.rigth.push(emptyArr.join("") + i.rigthSubString);
+        acc.right.push(emptyArr.join("") + i.rightSubString);
         return acc;
       },
-      { left: [] as string[], rigth: [] as string[] }
+      { left: [] as string[], right: [] as string[] }
     );
 
     // subStrings;
     setLeftSubStringRows(subStrings.left);
-    setRigthSubStringRows(subStrings.rigth);
+    setRightSubStringRows(subStrings.right);
 
     setPalindromeLog(data);
     setPalindrome(data.palindrome);
@@ -89,7 +89,7 @@ function PalindromeComponent() {
       {row(valueString)}
       <hr />
       {leftSubStringRows && viewStackRows(leftSubStringRows)}
-      {rigthSubStringRows && viewStackRows(rigthSubStringRows)}
+      {rightSubStringRows && viewStackRows(rightSubStringRows)}
 
       <hr />
       {viewValueString(palindrome)}

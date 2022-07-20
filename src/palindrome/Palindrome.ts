@@ -3,7 +3,7 @@ export interface PalindromeLogInterface {
   stack: [
     {
       leftSubString: string;
-      rigthSubString: string;
+      rightSubString: string;
 
       subStringLength: number;
       stringLength: number;
@@ -15,7 +15,7 @@ export interface PalindromeLogInterface {
           fragment: string;
           condition: string;
         };
-        rigth: {
+        right: {
           fragment: string;
           condition: string;
         };
@@ -102,7 +102,7 @@ export const PalindromeWithLog = (string: string): PalindromeLogInterface => {
     stack: [
       {
         leftSubString: string,
-        rigthSubString: string,
+        rightSubString: string,
         subStringLength: 0,
         stringLength: 0,
         results: [] as string[],
@@ -113,7 +113,7 @@ export const PalindromeWithLog = (string: string): PalindromeLogInterface => {
               fragment: "",
               condition: "",
             },
-            rigth: {
+            right: {
               fragment: "",
               condition: "",
             },
@@ -137,7 +137,7 @@ export const PalindromeWithLog = (string: string): PalindromeLogInterface => {
     let leftFragment = "";
     let RightFragment = "";
     let leftSubString = "";
-    let rigthSubString = "";
+    let rightSubString = "";
 
     // для логов
     const iteration = [];
@@ -155,7 +155,7 @@ export const PalindromeWithLog = (string: string): PalindromeLogInterface => {
       }
 
       // формируем фрагменты, или обнуляем
-      rigthSubString += string[string.length - (i + 1)];
+      rightSubString += string[string.length - (i + 1)];
       if (string[i + stringOffset] === string[string.length - (i + 1)]) {
         RightFragment += string[i + stringOffset];
       } else {
@@ -178,7 +178,7 @@ export const PalindromeWithLog = (string: string): PalindromeLogInterface => {
           fragment: leftFragment,
           condition: string[i] + "===" + string[+subStringLength - (i + 1)],
         },
-        rigth: {
+        right: {
           fragment: RightFragment,
           condition:
             string[i + stringOffset] + "===" + string[string.length - (i + 1)],
@@ -192,7 +192,7 @@ export const PalindromeWithLog = (string: string): PalindromeLogInterface => {
     if (log.stack[0].subStringLength === 0) {
       log.stack[0] = {
         leftSubString: leftSubString,
-        rigthSubString: rigthSubString,
+        rightSubString: rightSubString,
         subStringLength: subStringLength,
         stringLength: stringLength,
         results: results,
@@ -201,7 +201,7 @@ export const PalindromeWithLog = (string: string): PalindromeLogInterface => {
     } else {
       log.stack.push({
         leftSubString: leftSubString,
-        rigthSubString: rigthSubString,
+        rightSubString: rightSubString,
         subStringLength: subStringLength,
         stringLength: stringLength,
         results: results,
