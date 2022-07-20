@@ -1,10 +1,10 @@
-import Palindrome from "./palindrome/Palindrome";
+import PalindromeComponent from "./palindrome/PalindromeComponent";
 import "./App.scss";
 
 function App() {
   return (
     <div className="App">
-      <Palindrome />
+      <PalindromeComponent />
     </div>
   );
 }

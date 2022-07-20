@@ -1,0 +1,22 @@
+// перенести
+:root {
+    --palindrome-grid-cols: 0;
+}
+
+.palindrome {
+    &-row {
+        display: grid;
+        grid-template-columns: repeat(var(--palindrome-grid-cols), 1fr);
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    &-cell {
+        width: 20px;
+    }
+}
+
+.json {
+    text-align: left;
+    font-size: 11px;
+}
